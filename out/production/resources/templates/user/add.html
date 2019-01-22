@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+
+    <form method="POST" th:object="${user}" style="max-width:600px">
+        <p th:text="${error}" style="color:red"></p>
+        <label th:for="username">Username
+            <input type="text"  th:field="*{username}"/>
+        </label>
+        <span th:errors="*{username}" class="error"></span>
+        <label th:for="email">Email
+            <input type="email" th:field="*{email}" />
+        </label>
+        <span th:errors="*{email}" class="error"></span>
+        <label for="password">Password
+            <input id="password" type="password" name="password"/>
+        </label>
+        <span th:errors="*{password}" class="error"></span>
+        <label for="verify">Verify Password
+            <input id="verify" type="password" name="verify"/>
+        </label>
+        <input type="submit" value="Submit" />
+
+
+    </form>
+
+
+</body>
+</html>
